@@ -12,10 +12,15 @@ void createNewMemory() {
 }
 
 void printStack() {
+	if (size == 0)	{
+		return;
+	}
+
 	printf("[ ");
 	for (int i = 0; i < size - 1; i++) {
 		printf("%d,", *(stack + i));
 	}
+
 	printf("%d", *(stack + size - 1));
 	printf(" ]\n");
 }
@@ -36,6 +41,7 @@ int pop() {
 	}
 
 	int item = *(stack + size  - 1);
+	*(stack + size - 1) = -1;
 	size--;
 
 	return item;
