@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 // Max-heap implementation, but can be easily turned into min-heap
 
@@ -72,9 +73,9 @@ void heapifyDown(Heap *heap, int i) {
 	int leftInd = getLeftNode(i);
 	int rightInd = getRightNode(i);
 
-	if (heap->size - 1 >= leftInd) {
+	if (heap->size -1 >= leftInd) {
 		int leftVal = heap->arr[leftInd];
-		int rightVal;
+		int rightVal = INT_MIN;
 
 		if (heap->size - 1 >= rightInd) {
 			rightVal = heap->arr[rightInd];
